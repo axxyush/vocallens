@@ -36,3 +36,228 @@
     transform: rotate(360deg);
   }
 }
+
+/* *************************************** */
+
+.startstop {
+  margin: 10px;
+  text-decoration: none;
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #fff;
+  width: 9em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.startstop:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+.startstop:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+.startstop:hover::before {
+  filter: blur(20px);
+}
+
+.startstop:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+}
+
+/* *************************************** */
+
+.upload-contain {
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+  margin: 15px;
+  /* flex-wrap: wrap; */
+}
+
+.instructions {
+  background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  );
+  height: 100%;
+  width: 30%;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.instruct-content {
+  background-color: #fdfdfd;
+  margin: 7px;
+  height: 97.7%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.instruct-content h2 {
+  margin-top: 30%;
+  margin-bottom: 20px;
+}
+.instruct-content ul {
+  margin: 10px;
+}
+
+.upload-content {
+  background-color: #fdfdfd;
+  margin: 7px;
+  height: 97.7%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%;
+  overflow: scroll;
+}
+
+.upload {
+  background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  );
+  height: 100%;
+  width: 70%;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+/* *************************************** */
+
+.file-upload-form {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+.file-upload-label input {
+  display: none;
+}
+.file-upload-label svg {
+  height: 30px;
+  fill: rgb(82, 82, 82);
+  margin-bottom: 20px;
+}
+.file-upload-label {
+  cursor: pointer;
+  background-color: #ddd;
+  padding: 30px 70px;
+  border-radius: 40px;
+  border: 2px dashed rgb(82, 82, 82);
+  box-shadow: 0px 0px 200px -50px rgba(0, 0, 0, 0.719);
+}
+.file-upload-design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.browse-button {
+  background-color: rgb(82, 82, 82);
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: white;
+  transition: all 0.3s;
+}
+.browse-button:hover {
+  background-color: rgb(14, 14, 14);
+}
+
+/* *************************************** */
+
+.recording {
+  display: flex;
+  flex-direction: row;
+  align-items: centers;
+  justify-content: center;
+  text-decoration: dotted;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 10px;
+  background-color: rgba(14, 13, 13, 0.5);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 15px;
+  margin: 0 5px;
+  animation-delay: 0.25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: #ffff;
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
+}
+
+/* *************************************** */
+
+/* *************************************** */
+
+/* *************************************** */
+
+/* *************************************** */
