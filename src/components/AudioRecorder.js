@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 const AudioRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
-  const [start, setStart] = useState("Start");
+  const [start, setStart] = useState("Record");
   const [recordingProgress, setRecordingProgress] = useState("hidden");
   const [audioUrl, setAudioUrl] = useState(null);
   const mediaRecorderRef = useRef(null);
@@ -25,7 +25,7 @@ const AudioRecorder = () => {
       };
       mediaRecorderRef.current.start();
       setIsRecording(true);
-      setStart("Start");
+      setStart("Record");
       setRecordingProgress("visible");
     } catch (error) {
       console.error("Error accessing microphone:", error);
@@ -42,12 +42,6 @@ const AudioRecorder = () => {
     }
     setStart("Re-Record");
     setRecordingProgress("hidden");
-  };
-
-  const handleSubmit = () => {
-    if (!audioUrl) {
-      alert("Record audio first");
-    }
   };
 
   return (
@@ -91,9 +85,6 @@ const AudioRecorder = () => {
             <span className="bar"></span>
           </div>
         </div>
-        <button className="submit startstop" onClick={handleSubmit}>
-          Submit
-        </button>
       </div>
     </>
   );

@@ -36,9 +36,12 @@ function Upload() {
           <div className="upload-content">
             <h2>Submit Audio</h2>
             <p>
-              <i>Upload existing files or start a new recording</i>
+              <i>
+                Upload from computer, start a new recording or upload existing
+                files
+              </i>
             </p>
-            <div className="d-flex">
+            <div style={{ marginTop: "20px" }} className="diff-options">
               <form className="file-upload-form">
                 <label htmlFor="file" className="file-upload-label">
                   <div className="file-upload-design">
@@ -54,34 +57,49 @@ function Upload() {
               </form>
 
               <AudioRecorder />
+
+              <div style={{ margin: "20px" }} className="d-flex flex-column">
+                <div style={{ margin: "10px" }} className="dropdown">
+                  <button
+                    className="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Upload Existing Audio
+                  </button>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a className="dropdown-item" href="/">
+                        Audio 1
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/">
+                        Audio 2
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="/">
+                        Audio 3
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="dropdown my-3">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Upload Existing Audio
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Audio 1
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Audio 2
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Audio 3
-                  </a>
-                </li>
-              </ul>
+            <div style={{ marginTop: "20px" }} className="d-flex">
+              <div className="InputContainer">
+                <input
+                  placeholder="Speakers"
+                  id="input"
+                  className="input"
+                  name="text"
+                  type="text"
+                />
+              </div>
+              <button className="submit startstop">Continue</button>
             </div>
           </div>
         </div>
