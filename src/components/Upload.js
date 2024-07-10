@@ -176,7 +176,7 @@ function Upload() {
                   type="text"
                 />
               </div>
-              <button className="submit startstop">Continue</button>
+              <button className="submit startstop">Submit</button>
             </div>
           </div>
         </div>

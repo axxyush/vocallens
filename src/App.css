@@ -130,6 +130,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow: scroll;
 }
 .instruct-content h2 {
   margin-top: 30%;
