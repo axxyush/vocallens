@@ -23,14 +23,10 @@ function AudioSelect() {
             </h2>
             <ul>
               <li>
-                <strong>Isolate Patient's Speech:</strong> Ensure the analysis
-                focuses solely on the patient's speech by identifying the
-                correct audio chunks.
-              </li>
-              <li>
                 <strong>Select Relevant Chunks:</strong> We have divided the
                 uploaded recording into smaller segments. Please select the
-                segments that contain your patient's speech.
+                segments that contain your patient's speech to ensure the
+                analysis focuses solely on their speech.
               </li>
               <li>
                 <strong>Submit for Analysis:</strong> After selecting the

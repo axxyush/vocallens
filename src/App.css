@@ -100,7 +100,7 @@
 .upload-contain {
   display: flex;
   flex-direction: row;
-  height: 80vh;
+  height: 75vh;
   margin: 15px;
 }
 
@@ -154,11 +154,11 @@
 .upload-content-result {
   background-color: #fdfdfd;
   margin: 7px;
-  height: 97.7%;
+  height: 97%;
   border-radius: 15px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: row;
   padding: 5%;
   overflow: scroll;
@@ -194,7 +194,6 @@
 .file-upload-label svg {
   height: 30px;
   fill: rgb(82, 82, 82);
-  /* margin-bottom: 20px; */
 }
 
 .file-upload-label {

@@ -61,10 +61,10 @@ function Result() {
 
         <div className="upload">
           <div className="upload-content-result">
-            <img style={{ height: "100%" }} src={result} alt="result" />
-            <div className="card" style={{ width: "20rem" }}>
+            <img style={{ height: "90%" }} src={result} alt="result" />
+            <div className="card" style={{ width: "20rem", margin: "10px" }}>
               <img
-                style={{ border: "1px solid black" }}
+                style={{ border: "1px solid black", height: "200px" }}
                 src={graph}
                 className="card-img-top"
                 alt="..."
