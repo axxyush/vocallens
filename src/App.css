@@ -406,4 +406,254 @@ audio {
 
 /* *************************************** */
 
+.project-info {
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  top: -50px;
+}
+
+.project-title {
+  font-weight: 500;
+  font-size: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: black;
+}
+
+.lighter {
+  font-size: 0.9em;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag {
+  font-weight: lighter;
+  color: grey;
+}
+
+.delete {
+  background-color: #3d3d58;
+}
+
+.card-img div {
+  width: 90%;
+}
+.card-steps {
+  background-color: white;
+  margin: 20px;
+  color: black;
+  width: 300px;
+  max-height: 370px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.card-img {
+  position: relative;
+  top: -20px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-img a,
+.card-img div {
+  height: 150px;
+  width: 90%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card-imgs {
+  transition: all 0.5s;
+}
+
+.steps {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#how-it-works {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+/* ************************************ */
+.profile-card {
+  width: 190px;
+  height: 254px;
+  background: #f5f5f5;
+  padding: 2rem 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/*Image*/
+.profile-avatar {
+  --size: 60px;
+  background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+/*Card footer*/
+.profile-social {
+  transform: translateY(200%);
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.profile-social__item {
+  list-style: none;
+}
+
+.profile-social__item svg {
+  display: block;
+  height: 18px;
+  width: 18px;
+  fill: #515f65;
+  cursor: pointer;
+  transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+/*Text*/
+.profile-name {
+  color: #333;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.profile-position {
+  color: #859ba8;
+  font-size: 0.8em;
+}
+
+/*Hover*/
+.profile-card:hover {
+  box-shadow: 0 8px 50px #23232333;
+}
+
+.profile-card:hover .profile-info {
+  transform: translateY(-5%);
+}
+
+.profile-card:hover .profile-social {
+  transform: translateY(100%);
+  opacity: 1;
+}
+
+.profile-social__item svg:hover {
+  fill: #232323;
+  transform: scale(1.1);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.1);
+}
+/* ******************************** */
+.backontop {
+  text-decoration: none;
+  /* padding: 10px; */
+  --color: #0077ff;
+  font-family: inherit;
+  display: inline-block;
+  width: 130px;
+  height: 50px;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 40px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+}
+
+.backontop::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.backontop:hover {
+  color: white;
+}
+
+.backontop:before {
+  top: 100%;
+  left: 100%;
+  transition: 0.3s all;
+}
+
+.backontop:hover::before {
+  top: -30px;
+  left: -30px;
+}
+
+/* *************************************** */
+
+.research-papers-border {
+  background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  );
+  height: max-content;
+  margin: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.research-papers {
+  background-color: #fdfdfd;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+/* *************************************** */
+
 /* *************************************** */

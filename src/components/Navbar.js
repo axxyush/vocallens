@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import vocallenslogo from "../images/vocallenslogo.png";
 
 function Navbar() {
   let location = useLocation();
@@ -7,11 +8,17 @@ function Navbar() {
     <>
       <nav className="navbar  navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/upload">
-            <i
-              style={{ marginRight: "5px" }}
+          <Link className="navbar-brand" to="/">
+            <img
+              src={vocallenslogo}
+              alt="logo"
+              style={{
+                marginRight: "5px",
+                marginBottom: "2px",
+                height: "25px",
+              }}
               className="fa-solid fa-microphone-lines"
-            ></i>
+            ></img>
             Vocal Lens
           </Link>
           <button
