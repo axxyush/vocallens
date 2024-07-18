@@ -59,8 +59,34 @@ function Upload() {
     audioInputRef.current.click();
   };
 
-  const handleSubmit = () => {
-    navigate("/audioselect");
+  const submit = async (data, speakers = 1) => {
+    const response = await fetch("/api/validate", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ data, speakers }),
+    });
+
+    if (response.status !== 200) {
+      alert("Something went wrong. Please try again later.")
+      return;
+    }
+
+    const audios = await response.json();
+    if (audios.length < 1) {
+      alert("Could not identify any speakers. Please submit a different recording.");
+      return;
+    }
+
+    navigate("/audioselect", { state: { audios } });
+  };
+
+  const handleSubmit = async () => {
+    const response = await fetch(audioUrl);
+    const blob = await response.blob();
+
+    const reader = new FileReader();
+    reader.onload = (e) => submit(e.target.result);
+    reader.readAsDataURL(blob);
   };
 
   return (
@@ -182,7 +208,7 @@ function Upload() {
                   type="text"
                 />
               </div>
-              <button onClick={handleSubmit} className="submit startstop">
+              <button disabled={!audioUrl} onClick={handleSubmit} className="submit startstop">
                 Submit
               </button>
             </div>

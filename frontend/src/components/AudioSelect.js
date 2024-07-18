@@ -1,11 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function AudioSelect() {
-  const sampleAudioUrl =
-    "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-
   const navigate = useNavigate();
+  const { state: { audios } } = useLocation();
 
   const handleSubmit = () => {
     navigate("/result");
@@ -46,60 +44,27 @@ function AudioSelect() {
           <div className="upload-content">
             <h2 style={{ marginBottom: "20px" }}>Assign Audio to Speaker </h2>
 
-            <label className="cyberpunk-checkbox-label">
-              <input type="checkbox" className="cyberpunk-checkbox" />
-              <div>
-                <div className="voice-chat-card">
-                  <div className="voice-chat-card-body">
-                    <div className="audio-container">
-                      <span>
-                        Speaker 1:
-                        <audio style={{ width: "250px" }} controls>
-                          <source src={sampleAudioUrl} type="audio/mp3" />
-                          Your browser does not support the audio element.
-                        </audio>
-                      </span>
+            {audios.map((data, i) =>
+              <label className="cyberpunk-checkbox-label">
+                <input type="checkbox" className="cyberpunk-checkbox" />
+                <div>
+                  <div className="voice-chat-card">
+                    <div className="voice-chat-card-body">
+                      <div className="audio-container">
+                        <span>
+                          Section {i + 1}:
+                          <audio style={{ width: "250px" }} controls>
+                            <source src={data} type="audio/mp3" />
+                            Your browser does not support the audio element.
+                          </audio>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </label>
-            <label className="cyberpunk-checkbox-label">
-              <input type="checkbox" className="cyberpunk-checkbox" />
-              <div>
-                <div className="voice-chat-card">
-                  <div className="voice-chat-card-body">
-                    <div className="audio-container">
-                      <span>
-                        Speaker 1:
-                        <audio style={{ width: "250px" }} controls>
-                          <source src={sampleAudioUrl} type="audio/mp3" />
-                          Your browser does not support the audio element.
-                        </audio>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
-            <label className="cyberpunk-checkbox-label">
-              <input type="checkbox" className="cyberpunk-checkbox" />
-              <div>
-                <div className="voice-chat-card">
-                  <div className="voice-chat-card-body">
-                    <div className="audio-container">
-                      <span>
-                        Speaker 2:
-                        <audio style={{ width: "250px" }} controls>
-                          <source src={sampleAudioUrl} type="audio/mp3" />
-                          Your browser does not support the audio element.
-                        </audio>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </label>
+              </label>
+            )}
+
             <div className="d-flex">
               <button onClick={handleClear} className="submit startstop">
                 Clear
