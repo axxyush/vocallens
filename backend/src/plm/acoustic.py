@@ -23,7 +23,7 @@ B = 7
 
 # Preprocesses a corpus on disk to prepare for Kaldi GOP recipe.
 def preprocess_corpus(corpus_path):
-    recipe = os.path.join('..', 'kaldi', 'egs', 'gop', 's5')
+    recipe = os.path.join('kaldi', 'egs', 'gop', 's5')
     sample_path = os.path.join(recipe, "data", "sample")
 
     if os.path.exists(sample_path):
@@ -76,7 +76,7 @@ def preprocess_corpus(corpus_path):
                 words = transcription.split()
                 arpa = [ipa2arpa(ipa) for ipa in words]
                 phone_ids = [[phone_map[x.upper()] for x in to_suffixed(phones)] for phones in arpa]
-                w.write(f"{utterance_name} ../../../../backend/{corpus_path}/{speaker}/{utterance}\n")
+                w.write(f"{utterance_name} ../../../../{corpus_path}/{speaker}/{utterance}\n")
 
                 for word in words:
                     if word not in word_map:
@@ -95,7 +95,7 @@ def preprocess_corpus(corpus_path):
 # Computes the GOP of a corpus on disk and returns the scores and phone timestamps.
 def compute_gop(corpus_path):
     preprocess_corpus(corpus_path)
-    recipe_path = os.path.join("..", "kaldi", "egs", "gop", "s5")
+    recipe_path = os.path.join("kaldi", "egs", "gop", "s5")
     subprocess.Popen("./run.sh", cwd=recipe_path).wait()
 
     gop_data = {}

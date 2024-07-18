@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function AudioSelect() {
   const navigate = useNavigate();
   const { state: { audios } } = useLocation();
+  const checked = useMemo(() => audios ? new Array(audios.length).fill(false) : [], [audios]);
 
-  const handleSubmit = () => {
-    navigate("/result");
-  };
+  const submit = async (data) => {
+    const response = await fetch("/api/analyze", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status !== 200) {
+      alert("Something went wrong. Please try again later.")
+      return;
+    }
+
+    const results = await response.json();
+    navigate("/result", { state: { results } });
+  }
+
   const handleClear = () => {
     navigate("/upload");
   };
+
   return (
     <>
       <div className="upload-contain">
@@ -45,8 +60,8 @@ function AudioSelect() {
             <h2 style={{ marginBottom: "20px" }}>Assign Audio to Speaker </h2>
 
             {audios.map((data, i) =>
-              <label className="cyberpunk-checkbox-label">
-                <input type="checkbox" className="cyberpunk-checkbox" />
+              <label key={i} className="cyberpunk-checkbox-label">
+                <input type="checkbox" className="cyberpunk-checkbox" onClick={() => checked[i] = !checked[i]} />
                 <div>
                   <div className="voice-chat-card">
                     <div className="voice-chat-card-body">
@@ -69,7 +84,7 @@ function AudioSelect() {
               <button onClick={handleClear} className="submit startstop">
                 Clear
               </button>
-              <button onClick={handleSubmit} className="submit startstop">
+              <button onClick={() => submit(audios.filter((_, i) => checked[i]))} className="submit startstop">
                 Submit
               </button>
             </div>

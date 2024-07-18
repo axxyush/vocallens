@@ -1,8 +1,12 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import result from "./result.png";
 import graph from "./graph.png";
 
 function Result() {
+  const { state: { results } } = useLocation();
+  console.log(results);
+
   return (
     <>
       <div className="upload-contain">
