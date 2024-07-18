@@ -1,0 +1,11 @@
+Flask
+gruut_ipa
+imbalanced-learn
+kaldi_io
+librosa
+praat-parselmouth
+pyannote.audio
+soundfile
+speechbrain==0.5.16
+string2string
+transformers
