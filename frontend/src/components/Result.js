@@ -5,7 +5,15 @@ import graph from "./graph.png";
 
 function Result() {
   const { state: { results } } = useLocation();
-  console.log(results);
+
+  const TABLE_DATA = [
+    ["Duration", results.duration.toFixed(1) + "s"],
+    ["Correct Phones", (results.ce.match(/C/g)?.length ?? 0) + "p"],
+    ["Incorrect Phones", (results.ce.match(/E/g)?.length ?? 0) + "p"],
+    ["Speech Rate", (results.ce.length / results.duration).toFixed(1) + "p/s"],
+    ["Block Period", "?s/b"],
+    ["Repetition Period", "?s/r"],
+  ];
 
   return (
     <>
@@ -65,7 +73,16 @@ function Result() {
 
         <div className="upload">
           <div className="upload-content-result">
-            <img style={{ height: "90%" }} src={result} alt="result" />
+            <table style={{ border: "1px solid black" }}>
+              <tbody>
+                {TABLE_DATA.map(([key, value], i) =>
+                  <tr key={i}>
+                    <td>{key}</td>
+                    <td style={{ textAlign: "right" }}>{value}</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
             <div className="card" style={{ width: "20rem", margin: "10px" }}>
               <img
                 style={{ border: "1px solid black", height: "200px" }}
