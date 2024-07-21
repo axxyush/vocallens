@@ -1,7 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import result from "./result.png";
-import graph from "./graph.png";
+import { smooth, transpose } from "../util";
+import LineChart from "./LineChart";
+import BiomarkerChart from "./BiomarkerChart";
+import MuscleChart from "./MuscleChart";
 
 function Result() {
   const { state: { results } } = useLocation();
@@ -14,6 +16,11 @@ function Result() {
     ["Block Period", "?s/b"],
     ["Repetition Period", "?s/r"],
   ];
+
+  const features = transpose(results.features);
+  const formant = features.slice(0, 3).map((y, i) => ({ y: smooth(y), name: "F" + (i + 1) }));
+  const bandwidth = [{ y: smooth(features[23]), name: "Bandwidth" }];
+  const gop = [{ y: smooth(features[24]), name: "GOP" }];
 
   return (
     <>
@@ -73,26 +80,31 @@ function Result() {
 
         <div className="upload">
           <div className="upload-content-result">
-            <table style={{ border: "1px solid black" }}>
-              <tbody>
-                {TABLE_DATA.map(([key, value], i) =>
-                  <tr key={i}>
-                    <td>{key}</td>
-                    <td style={{ textAlign: "right" }}>{value}</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+            <div style={{ flex: 1, paddingRight: "3rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-around" }}>
+                <table style={{ border: "1px solid black" }}>
+                  <tbody>
+                    {TABLE_DATA.map(([key, value], i) =>
+                      <tr style={{ background: (i % 2) ? "lightgrey" : "white" }} key={i}>
+                        <td style={{ paddingLeft: 10, paddingRight: 50 }}>{key}</td>
+                        <td style={{ paddingRight: 10, textAlign: "right" }}>{value}</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+                <MuscleChart />
+              </div>
+              <div style={{ display: "flex", gap: "3rem", height: 350 }}>
+                <LineChart data={formant} xtitle="Phoneme" ytitle="Formant (Hz)" />
+                <LineChart data={bandwidth} xtitle="Phoneme" ytitle="Spectral Bandwidth (Hz)" />
+                <LineChart data={gop} xtitle="Phoneme" ytitle="Goodness of Pronunciation (GOP)" />
+              </div>
+            </div>
             <div className="card" style={{ width: "20rem", margin: "10px" }}>
-              <img
-                style={{ border: "1px solid black", height: "200px" }}
-                src={graph}
-                className="card-img-top"
-                alt="..."
-              />
+              <BiomarkerChart data={results.biomarkers} />
               <div className="card-body">
                 <h5 className="card-title">
-                  SLI Probabilty: <b>15.3%</b>
+                  SLI Probabilty: <b>{(results.sli_proba * 100).toFixed(2)}%</b>
                 </h5>
                 <p className="card-text">
                   The first positive sample demonstrated elevated MPD and ACE,
