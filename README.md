@@ -58,8 +58,7 @@ Finally, run the main installation script with your HuggingFace access token:
 To start the server, execute the following from the `backend` directory:
 
 ```bash
-. venv/bin/activate
-python src/main.py
+./start.sh
 ```
 
 The server will be available at <http://localhost:8080>.
