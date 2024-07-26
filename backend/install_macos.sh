@@ -23,11 +23,11 @@ if [ -f kaldi/src/bin/compute-gop ]; then
 else
   # Build Kaldi
   cd kaldi/tools
-  make -j`nproc`
+  make -j`sysctl -n hw.logicalcpu`
   cd ../src
   ./configure
   make clean depend
-  make -j`nproc`
+  make -j`sysctl -n hw.logicalcpu`
   cd ../..
 fi
 
