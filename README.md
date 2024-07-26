@@ -7,7 +7,7 @@ This repository contains the source code for the UB SLI project [VocalLens](http
 This section describes the development setup. To start, clone the repository:
 
 ```bash
-git clone --recurse-submodules git@github.com:axxyush/vocallens.git 
+git clone --recurse-submodules git@github.com:mattrrubino/vocal-lens.git
 ```
 
 Then, follow the steps for frontend and/or backend development below.
