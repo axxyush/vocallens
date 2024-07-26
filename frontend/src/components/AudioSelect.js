@@ -1,13 +1,14 @@
 import React, { useMemo } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useHref } from "react-router-dom";
 
 function AudioSelect() {
   const navigate = useNavigate();
+  const analyzePath = useHref("/api/analyze");
   const { state: { audios } } = useLocation();
   const checked = useMemo(() => audios ? new Array(audios.length).fill(false) : [], [audios]);
 
   const submit = async (data) => {
-    const response = await fetch("/api/analyze", {
+    const response = await fetch(analyzePath, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

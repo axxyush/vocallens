@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHref, useNavigate } from "react-router-dom";
 
 function Upload() {
   const [isRecording, setIsRecording] = useState(false);
@@ -10,6 +10,7 @@ function Upload() {
   const audioChunksRef = useRef([]);
   const audioInputRef = useRef(null);
   const navigate = useNavigate();
+  const validatePath = useHref("/api/validate");
 
   const startRecording = async () => {
     try {
@@ -60,7 +61,7 @@ function Upload() {
   };
 
   const submit = async (data, speakers = 1) => {
-    const response = await fetch("/api/validate", {
+    const response = await fetch(validatePath, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ data, speakers }),

@@ -17,11 +17,12 @@ from util import signal_to_wav_url
 
 app = Flask(__name__)
 
+BASE_PATH = "/vocallens/api"
 NOISE_THRESHOLD = 10
 
 
 # Validates the input and returns diarized speech segments.
-@app.route('/api/validate', methods=["POST"])
+@app.route(BASE_PATH+"/validate", methods=["POST"])
 def validate():
     data = request.json.get("data")
     speakers = request.json.get("speakers")
@@ -58,7 +59,7 @@ def validate():
 
 
 # Analyzes the input and returns SLI result.
-@app.route('/api/analyze', methods=["POST"])
+@app.route(BASE_PATH+"/analyze", methods=["POST"])
 def analyze():
     try:
         data = request.json
