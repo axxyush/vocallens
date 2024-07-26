@@ -37,11 +37,12 @@ def signal_to_wav(signal):
 
 # Saves the input signal to disk as a speech corpus.
 def save_signal_to_corpus(signal, sr=16000):
-    sf.write("stage.wav", signal, sr)
-    chunks = get_orthographic_transcription_chunks("stage.wav")
+    signal_path = os.path.join("..", "stage.wav")
+    sf.write(signal_path, signal, sr)
+    chunks = get_orthographic_transcription_chunks(signal_path)
     assert isinstance(chunks, list),"Chunks should be a list"
 
-    corpus_path = "sample"
+    corpus_path = os.path.join("..", "sample")
     wav_path = os.path.join(corpus_path, "wav")
 
     if os.path.exists(corpus_path):
@@ -62,7 +63,7 @@ def save_signal_to_corpus(signal, sr=16000):
         i += 1
 
     # sf.write(os.path.join(corpus_path, 'sample.wav'), signal, sr)
-    os.remove("stage.wav")
+    os.remove(signal_path)
 
     return corpus_path
 

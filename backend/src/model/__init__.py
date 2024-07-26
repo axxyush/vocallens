@@ -14,20 +14,20 @@ def load(path):
 
 # Loads and returns the PLM detection model.
 def load_plm():
-    return load("src/model/plm.pkl")
+    return load("model/plm.pkl")
 
 
 # Loads and returns the ABD SLI model.
 def load_abd_sli():
-    return load("src/model/abd_sli.pkl")
+    return load("model/abd_sli.pkl")
 
 
 # Loads and returns the ABD biomarker scaler.
 def load_abd_scaler():
-    return load("src/model/abd_scaler.pkl")
+    return load("model/abd_scaler.pkl")
 
 
 # Loads and returns the TBD SLI model.
 def load_tbd_sli():
-    return load("src/model/tbd_sli.pkl")
+    return load("model/tbd_sli.pkl")
 
