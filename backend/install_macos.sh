@@ -6,8 +6,16 @@ if [ "$#" -le 0 ]; then
   exit
 fi
 
+# Check for Homebrew
+which brew
+if [[ $? != 0 ]]; then
+  echo "Missing Homebrew. See https://brew.sh for installation details."
+  exit
+fi
+
 # Install dependencies
-# TODO
+brew install python@3.8
+brew install wget
 
 # Check for Kaldi build
 if [ -f kaldi/src/bin/compute-gop ]; then
