@@ -9,3 +9,4 @@ soundfile
 speechbrain==0.5.16
 string2string
 transformers
+uvicorn[standard]
