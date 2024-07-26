@@ -27,26 +27,37 @@ The frontend will be available at <http://localhost:3000>.
 
 ### Backend
 
-To work on the backend, you must first install [Python 3.8](https://www.python.org/downloads/release/python-3819) with support for virtual environments.
-The recommended approach for Debian-based Linux distros is to use the deadsnakes PPA as follows:
-
-```bash
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-sudo apt-get install python3.8 python3.8-venv -y
-```
-
-Next, create a user access token on [HuggingFace](https://huggingface.co/settings/tokens) and accept the following gated models:
+To work on the backend, you must first create a user access token on [HuggingFace](https://huggingface.co/settings/tokens) and accept the following gated models:
 1. <https://huggingface.co/pyannote/segmentation-3.0>
 2. <https://huggingface.co/pyannote/speaker-diarization-3.1>
 3. <https://huggingface.co/pyannote/speaker-diarization>
 4. <https://huggingface.co/pyannote/segmentation>
 
-Then, run the installation script with your HuggingFace token and start the server:
+Next, navigate to the installation directory:
 
 ```bash
-cd backend
+cd backend/install
+```
+
+Then, run one of the following based on your operating system:
+
+```bash
+sudo ./install_deps_debian.sh
+```
+
+```bash
+./install_deps_macos.sh
+```
+
+Finally, run the main installation script with your HuggingFace access token:
+
+```bash
 ./install.sh {TOKEN}
+```
+
+To start the server, execute the following from the `backend` directory:
+
+```bash
 . venv/bin/activate
 python src/main.py
 ```
