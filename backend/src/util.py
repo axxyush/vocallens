@@ -53,8 +53,11 @@ def save_signal_to_corpus(signal, sr=16000):
     i = 0
     for chunk in chunks:
         start, end = chunk['timestamp']
-        if start is None or end is None:
-            continue
+
+        if start is None:
+            start = 0
+        if end is None:
+            end = len(signal) / sr
 
         start_i = int(start*sr)
         end_i = int(end*sr)
