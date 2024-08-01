@@ -182,7 +182,7 @@ function Upload() {
             </div>
           </div>
 
-          <div style={{ marginTop: "20px" }} className="d-flex">
+          <div style={{ marginTop: "20px" }} className="d-flex flex-wrap gap-3">
             <div className="InputContainer">
               <input
                 placeholder="Speakers"
