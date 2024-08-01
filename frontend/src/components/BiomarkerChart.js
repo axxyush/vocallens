@@ -25,6 +25,7 @@ function BiomarkerChart({ data }) {
       type: "scatterpolar",
       r: biomarkers.map(b => mean_positive[b]),
       theta: biomarkers,
+      hovertemplate: "%{theta}: %{r}",
       fill: "toself",
       name: "Mean SLI",
       marker: {
@@ -35,6 +36,7 @@ function BiomarkerChart({ data }) {
       type: "scatterpolar",
       r: biomarkers.map(b => mean_negative[b]),
       theta: biomarkers,
+      hovertemplate: "%{theta}: %{r}",
       fill: "toself",
       name: "Mean TD",
       marker: {
@@ -45,6 +47,7 @@ function BiomarkerChart({ data }) {
       type: "scatterpolar",
       r: biomarkers.map(b => data[b]),
       theta: biomarkers,
+      hovertemplate: "%{theta}: %{r}",
       name: "Sample",
       marker: {
         color: "green",
