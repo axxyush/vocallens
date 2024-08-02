@@ -1,0 +1,3 @@
+[submodule "backend/kaldi"]
+	path = backend/kaldi
+	url = git@github.com:kaldi-asr/kaldi.git
